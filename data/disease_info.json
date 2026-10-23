@@ -1,0 +1,308 @@
+{
+  "_meta": {
+    "purpose": "General educational information only. Not medical advice and not a diagnosis. Edit this file to change wording; no code changes needed.",
+    "reviewed": "Content drafted for a general audience from the public sources listed per class. Have a clinician review it before public launch."
+  },
+  "general_sources": [
+    {"name": "American Academy of Dermatology - Types of skin cancer", "url": "https://www.aad.org/public/diseases/skin-cancer/types/common"},
+    {"name": "DermNet (DermNet NZ)", "url": "https://dermnetnz.org/"},
+    {"name": "National Cancer Institute - Skin cancer", "url": "https://www.cancer.gov/types/skin"},
+    {"name": "CDC - Skin cancer", "url": "https://www.cdc.gov/skin-cancer/"}
+  ],
+  "classes": {
+    "nv": {
+      "display_name": "Melanocytic nevus (mole)",
+      "category": "Usually Benign",
+      "short_description": "A common, usually harmless cluster of pigment-producing cells that appears as a brown, tan or pink spot on the skin.",
+      "description": "A melanocytic nevus (mole) is a benign growth made of melanocytes, the cells that make skin pigment. Most adults have several. Moles may be flat or raised, and are often round or oval with an even colour.",
+      "causes": [
+        "Develop from clusters of melanocytes, influenced by genetics and by sun exposure, especially in childhood and adolescence.",
+        "New moles commonly appear during childhood and early adulthood; some fade with age."
+      ],
+      "risk_factors": [
+        "Fair skin, light hair or eyes, and a tendency to burn.",
+        "Having many moles (often more than 50), or large or atypical-looking moles.",
+        "Family history of melanoma or atypical moles."
+      ],
+      "characteristics": [
+        "Typically small, round or oval, with a smooth border and fairly even colour.",
+        "Stable in size, shape and colour over years.",
+        "Can be flat or dome-shaped, and may have hairs."
+      ],
+      "prevention": [
+        "Use broad-spectrum sunscreen (SPF 30 or higher), seek shade and wear protective clothing and hats.",
+        "Avoid tanning beds.",
+        "Get to know your skin and check it regularly, noting any change."
+      ],
+      "seek_care": [
+        "A mole that changes in size, shape or colour, or has an irregular border or several colours.",
+        "A mole that itches, bleeds, becomes crusty or painful.",
+        "A new mole that appears and looks different from your others, especially after adulthood."
+      ],
+      "additional": "Most moles never cause problems. The 'ABCDE' guide (Asymmetry, Border, Color, Diameter, Evolving) is a common way to notice changes worth showing to a clinician. Some melanomas look very similar to moles, which is why a visual match is not reassurance on its own.",
+      "sources": [
+        {"name": "DermNet - Melanocytic naevus", "url": "https://dermnetnz.org/topics/melanocytic-naevus"},
+        {"name": "National Cancer Institute - Skin cancer", "url": "https://www.cancer.gov/types/skin"}
+      ]
+    },
+    "mel": {
+      "display_name": "Melanoma",
+      "category": "Malignant",
+      "short_description": "A serious type of skin cancer that starts in pigment-producing cells and can spread if not found early.",
+      "description": "Melanoma is a skin cancer that develops from melanocytes. It can appear as a new spot or as a change in an existing mole. When found early it is often highly treatable; it is considered the most serious common skin cancer because it can spread to other parts of the body.",
+      "causes": [
+        "Often associated with DNA damage from ultraviolet (UV) radiation from the sun or tanning beds.",
+        "Can also occur on skin with little sun exposure; genetics play a role in some people."
+      ],
+      "risk_factors": [
+        "History of sunburns, especially blistering sunburns, and indoor tanning.",
+        "Fair skin, many moles or atypical moles.",
+        "Personal or family history of melanoma.",
+        "Weakened immune system."
+      ],
+      "characteristics": [
+        "A new or changing spot; often asymmetric, with an irregular border or several colours.",
+        "Can be larger than about 6 mm, but may be smaller.",
+        "May itch, bleed or crust; some melanomas have little or no pigment.",
+        "Can appear anywhere, including soles, palms, under nails and mucous membranes."
+      ],
+      "prevention": [
+        "Limit UV exposure: seek shade, wear protective clothing and a wide-brimmed hat, and use broad-spectrum SPF 30+ sunscreen.",
+        "Do not use tanning beds.",
+        "Check your skin regularly and have a clinician examine moles you are unsure about."
+      ],
+      "seek_care": [
+        "Any spot that is new, changing, growing, bleeding or looks different from your other moles.",
+        "Do not wait for this tool or another one to 'confirm' a concern; see a doctor or dermatologist promptly for any suspicious lesion."
+      ],
+      "additional": "Diagnosis requires examination by a clinician and usually a biopsy. Outcomes are generally best when melanoma is found and removed early.",
+      "sources": [
+        {"name": "American Academy of Dermatology - Melanoma", "url": "https://www.aad.org/public/diseases/skin-cancer/types/common/melanoma"},
+        {"name": "DermNet - Melanoma", "url": "https://dermnetnz.org/topics/melanoma"},
+        {"name": "National Cancer Institute - Skin cancer", "url": "https://www.cancer.gov/types/skin"}
+      ]
+    },
+    "bcc": {
+      "display_name": "Basal cell carcinoma",
+      "category": "Malignant",
+      "short_description": "The most common skin cancer; it grows slowly, rarely spreads, but needs medical treatment.",
+      "description": "Basal cell carcinoma (BCC) arises from basal cells in the upper layer of the skin. It is the most common type of skin cancer. It usually grows slowly and rarely spreads to other organs, but it can damage surrounding tissue if left untreated.",
+      "causes": [
+        "Strongly associated with long-term and intermittent UV exposure.",
+        "Certain inherited conditions and previous radiation treatment can contribute."
+      ],
+      "risk_factors": [
+        "Fair skin and a history of sunburns or heavy sun exposure.",
+        "Indoor tanning.",
+        "Age, and a previous skin cancer.",
+        "Weakened immune system."
+      ],
+      "characteristics": [
+        "A pearly or shiny bump, sometimes with visible tiny blood vessels.",
+        "A pink or red patch, or a sore that bleeds, scabs and does not heal or keeps returning.",
+        "Most often on sun-exposed areas such as the face, ears, neck and scalp."
+      ],
+      "prevention": [
+        "Daily sun protection: shade, clothing, hats and broad-spectrum SPF 30+ sunscreen.",
+        "Avoid tanning beds.",
+        "Regular skin self-checks and professional skin exams if you are at higher risk."
+      ],
+      "seek_care": [
+        "A sore that does not heal within a few weeks, or that bleeds or crusts repeatedly.",
+        "A pearly, waxy or scar-like growth that is slowly enlarging."
+      ],
+      "additional": "BCC is generally highly treatable, particularly when found early. Treatment choice depends on the lesion and is decided by a clinician after diagnosis.",
+      "sources": [
+        {"name": "American Academy of Dermatology - Basal cell carcinoma", "url": "https://www.aad.org/public/diseases/skin-cancer/types/common/bcc"},
+        {"name": "DermNet - Basal cell carcinoma", "url": "https://dermnetnz.org/topics/basal-cell-carcinoma"}
+      ]
+    },
+    "bkl": {
+      "display_name": "Benign keratosis-like lesion",
+      "category": "Usually Benign",
+      "short_description": "A grouped category of common non-cancerous spots such as seborrheic keratoses and solar lentigines.",
+      "description": "In skin-lesion datasets, 'benign keratosis-like lesions' is a broad label that typically groups several benign conditions, including seborrheic keratoses, solar lentigines ('age spots') and lichen-planus-like keratoses. It is not a single diagnosis.",
+      "causes": [
+        "Seborrheic keratoses tend to run in families and become more common with age; their exact cause is not fully understood.",
+        "Solar lentigines are associated with cumulative sun exposure."
+      ],
+      "risk_factors": [
+        "Increasing age.",
+        "Family history.",
+        "Sun exposure (for solar lentigines)."
+      ],
+      "characteristics": [
+        "Often tan, brown or black, with a waxy, 'stuck-on' or slightly rough surface.",
+        "Can be flat or raised, single or multiple.",
+        "Usually painless; may itch or become irritated when rubbed."
+      ],
+      "prevention": [
+        "Sun protection can reduce new sun-related spots and protects against skin cancer.",
+        "There is no proven way to prevent seborrheic keratoses."
+      ],
+      "seek_care": [
+        "A spot that bleeds, changes quickly, becomes painful, or looks different from similar spots on your body.",
+        "A sudden appearance of many new spots.",
+        "Any lesion you cannot tell apart from a mole or skin cancer; some cancers can resemble these lesions."
+      ],
+      "additional": "Because some skin cancers can look similar, clinicians sometimes examine these spots with a dermatoscope. Removal is usually for cosmetic or comfort reasons and is decided with a clinician.",
+      "sources": [
+        {"name": "American Academy of Dermatology - Seborrheic keratoses", "url": "https://www.aad.org/public/diseases/a-z/seborrheic-keratoses-overview"},
+        {"name": "DermNet - Seborrhoeic keratosis", "url": "https://dermnetnz.org/topics/seborrhoeic-keratosis"},
+        {"name": "DermNet - Solar lentigo", "url": "https://dermnetnz.org/topics/solar-lentigo"}
+      ]
+    },
+    "akiec": {
+      "display_name": "Actinic keratosis / intraepithelial carcinoma category",
+      "category": "Precancerous",
+      "short_description": "A grouped category covering sun-damaged precancerous patches and early, surface-level skin cancer (such as Bowen's disease).",
+      "description": "In skin-lesion datasets, 'akiec' groups actinic keratoses (rough, sun-damaged patches that can be precancerous) with intraepithelial carcinomas such as Bowen's disease (squamous cell carcinoma in situ). It is a broad label, not a single diagnosis.",
+      "causes": [
+        "Chronic UV exposure damaging skin cells over many years.",
+        "Other factors can include immune suppression and certain viral infections."
+      ],
+      "risk_factors": [
+        "Fair skin, older age and lots of lifetime sun exposure.",
+        "Outdoor work or tanning-bed use.",
+        "Weakened immune system.",
+        "Previous actinic keratoses or skin cancers."
+      ],
+      "characteristics": [
+        "Rough, scaly or sandpaper-like patches, often pink, red or brown.",
+        "Typically on sun-exposed skin such as the face, ears, scalp, hands and forearms.",
+        "Bowen's disease often appears as a persistent, scaly, red patch with a defined edge."
+      ],
+      "prevention": [
+        "Consistent sun protection (shade, clothing, hats, broad-spectrum SPF 30+ sunscreen).",
+        "Avoid tanning beds.",
+        "Regular skin checks, particularly if you have had these patches before."
+      ],
+      "seek_care": [
+        "Any rough or scaly patch that persists, grows, thickens, bleeds or becomes tender.",
+        "A patch that has become a firm lump or an open sore."
+      ],
+      "additional": "Some actinic keratoses can progress to squamous cell carcinoma, so clinicians usually want to evaluate them. Treatment decisions are made by a clinician.",
+      "sources": [
+        {"name": "American Academy of Dermatology - Actinic keratosis", "url": "https://www.aad.org/public/diseases/a-z/actinic-keratosis-overview"},
+        {"name": "DermNet - Actinic keratosis", "url": "https://dermnetnz.org/topics/actinic-keratosis"},
+        {"name": "DermNet - Bowen disease", "url": "https://dermnetnz.org/topics/bowen-disease"}
+      ]
+    },
+    "scc": {
+      "display_name": "Squamous cell carcinoma",
+      "category": "Malignant",
+      "short_description": "A common skin cancer that can grow and, less often, spread if not treated.",
+      "description": "Squamous cell carcinoma (SCC) of the skin develops from squamous cells in the outer layers of the skin. It is the second most common skin cancer. Most are found early and are treatable, but some can grow deeper or spread, especially if neglected.",
+      "causes": [
+        "Associated with cumulative UV exposure.",
+        "Can also arise in chronic wounds, scars, areas of previous radiation, or in association with some viral infections."
+      ],
+      "risk_factors": [
+        "Fair skin, sun-damaged skin and actinic keratoses.",
+        "Weakened immune system, including after organ transplant.",
+        "Older age, tanning-bed use and previous skin cancer.",
+        "Tobacco use (for lip and oral SCC)."
+      ],
+      "characteristics": [
+        "A firm red nodule, a scaly crusted patch, or a sore that does not heal.",
+        "May be tender, may bleed, and can resemble a wart.",
+        "Common on the face, ears, lips, scalp, hands and other sun-exposed areas."
+      ],
+      "prevention": [
+        "Sun protection: shade, clothing, hats and broad-spectrum SPF 30+ sunscreen.",
+        "Avoid tanning beds.",
+        "Skin checks, with professional exams if you are at higher risk or immunosuppressed."
+      ],
+      "seek_care": [
+        "A growth or sore that persists for more than a few weeks, bleeds or keeps crusting.",
+        "A rapidly growing or painful lump, or swollen glands near a skin lesion."
+      ],
+      "additional": "Early evaluation matters. Diagnosis is made by a clinician, usually with a biopsy.",
+      "sources": [
+        {"name": "American Academy of Dermatology - Squamous cell carcinoma", "url": "https://www.aad.org/public/diseases/skin-cancer/types/common/scc"},
+        {"name": "DermNet - Squamous cell carcinoma", "url": "https://dermnetnz.org/topics/squamous-cell-carcinoma"}
+      ]
+    },
+    "df": {
+      "display_name": "Dermatofibroma",
+      "category": "Benign",
+      "short_description": "A common, harmless, firm skin nodule, often on the legs.",
+      "description": "A dermatofibroma is a benign, firm growth in the skin made of fibrous tissue. It is usually small, brownish or pinkish, and often found on the lower legs. It is typically harmless.",
+      "causes": [
+        "The exact cause is unknown.",
+        "Some are thought to follow minor skin injury such as an insect bite or a small splinter, but this is not established for every case."
+      ],
+      "risk_factors": [
+        "More common in adults and in women.",
+        "Often appear on the legs."
+      ],
+      "characteristics": [
+        "A firm, small bump, often reddish-brown, that may dimple inward when pinched from the sides.",
+        "Usually stable and painless; may itch or be tender."
+      ],
+      "prevention": [
+        "There is no known way to prevent dermatofibromas.",
+        "Avoid picking or irritating the lesion."
+      ],
+      "seek_care": [
+        "A lesion that grows quickly, changes colour, bleeds, ulcerates or becomes painful.",
+        "Any bump you are unsure about, since some skin cancers can look similar."
+      ],
+      "additional": "Most dermatofibromas need no treatment. A clinician can confirm the diagnosis and discuss options if the lesion is bothersome.",
+      "sources": [
+        {"name": "DermNet - Dermatofibroma", "url": "https://dermnetnz.org/topics/dermatofibroma"}
+      ]
+    },
+    "vasc": {
+      "display_name": "Vascular skin lesion",
+      "category": "Usually Benign",
+      "short_description": "A grouped category of lesions made of blood vessels, such as cherry angiomas and angiokeratomas.",
+      "description": "In skin-lesion datasets, 'vasc' groups lesions arising from blood vessels, such as cherry angiomas, angiokeratomas and pyogenic granulomas. It is a broad label, not a single diagnosis; most of these lesions are benign.",
+      "causes": [
+        "Overgrowth or dilation of small blood vessels.",
+        "Cherry angiomas become more common with age; pyogenic granulomas often follow minor injury; causes vary by type."
+      ],
+      "risk_factors": [
+        "Increasing age (cherry angiomas).",
+        "Minor skin trauma (pyogenic granuloma).",
+        "Hormonal changes such as pregnancy can be associated with some types."
+      ],
+      "characteristics": [
+        "Bright red, purple or blue-ish spots or bumps.",
+        "Often small and well defined; some bleed easily when scratched or injured."
+      ],
+      "prevention": [
+        "No specific prevention for most types.",
+        "Protect the area from repeated injury if a lesion bleeds easily."
+      ],
+      "seek_care": [
+        "A lesion that grows rapidly, bleeds repeatedly, or does not stop bleeding with gentle pressure.",
+        "A red or dark lesion that changes, or that you cannot distinguish from a mole or skin cancer."
+      ],
+      "additional": "Some melanomas and other skin cancers can look red or dark, so a clinician should assess lesions that are new, changing or unusual.",
+      "sources": [
+        {"name": "DermNet - Cherry angioma", "url": "https://dermnetnz.org/topics/cherry-angioma"},
+        {"name": "DermNet - Pyogenic granuloma", "url": "https://dermnetnz.org/topics/pyogenic-granuloma"},
+        {"name": "DermNet - Angiokeratoma", "url": "https://dermnetnz.org/topics/angiokeratoma"}
+      ]
+    },
+    "unknown": {
+      "display_name": "Unknown or unsupported image category",
+      "category": "Not a diagnosis",
+      "short_description": "The model could not place this image into one of the supported lesion categories.",
+      "description": "This is not a medical condition. It means the image may fall outside the lesion types the model was trained on, or may be unsuitable for classification (for example blurry, poorly lit, too distant, or not showing a skin lesion). It does not mean the skin is healthy or that nothing is wrong.",
+      "causes": [
+        "The image may show a condition that is not among the supported categories.",
+        "Image quality, lighting, distance, hair, or glare may make classification unreliable."
+      ],
+      "risk_factors": [],
+      "characteristics": [],
+      "prevention": [],
+      "seek_care": [
+        "If you have a skin concern, have it examined by a doctor or dermatologist regardless of this result."
+      ],
+      "additional": "You can try a sharper, well-lit, close-up photo of the area. Even then, the model cannot be relied upon to recognise every unsupported image.",
+      "sources": []
+    }
+  }
+}

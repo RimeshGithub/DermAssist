@@ -1,0 +1,15 @@
+# Runtime dependencies for DermAssist.
+# NOTE: the Dockerfile installs CPU-only torch/torchvision first (much smaller image), so the two torch
+# lines below are already satisfied there. For local runs they install the default PyTorch build.
+torch>=2.2
+torchvision>=0.17
+timm>=1.0
+# IMPORTANT: scikit-learn (and numpy) must be compatible with the versions used in the notebook, because
+# metadata_encoders.pkl is a pickle of fitted sklearn OneHotEncoders. Pin to your Colab versions, e.g.
+# scikit-learn==1.6.1 (run `import sklearn; print(sklearn.__version__)` in the notebook).
+scikit-learn>=1.2
+numpy>=1.26
+pillow>=10.0
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9

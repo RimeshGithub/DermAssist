@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DermAssist - skin lesion image classifier (experimental)</title>
+  <meta name="description" content="Experimental AI-assisted tool that ranks likely skin lesion categories from a photo. Not a medical diagnosis.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230B6E6A'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23F3F6F4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+  <link rel="stylesheet" href="/static/vendor/cropper.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+  <a class="skip" href="#workbench">Skip to the tool</a>
+
+  <!-- <div class="banner" role="note">
+    Experimental AI-assisted information tool. It does <strong>not</strong> diagnose any condition.
+  </div> -->
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="16" cy="16" r="6" fill="currentColor"/>
+          <path d="M16 0v7M16 25v7M0 16h7M25 16h7" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span class="brand-name">DermAssist</span>
+      </div>
+      <!-- <div id="model-status" class="model-status" role="status" aria-live="polite">Checking model&hellip;</div> -->
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h2>See which skin lesion categories a photo most resembles</h2>
+      <p class="lede">Upload a clear, close-up photo of a skin spot, optionally add a few details, and the model ranks the three categories it matches best.</p>
+      <ol class="steps" aria-label="How it works">
+        <li id="chip-1" class="chip"><span class="chip-n">1</span>Upload photo</li>
+        <li id="chip-2" class="chip"><span class="chip-n">2</span>Crop and adjust</li>
+        <li id="chip-3" class="chip"><span class="chip-n">3</span>Add details</li>
+        <li id="chip-4" class="chip"><span class="chip-n">4</span>Analyze</li>
+      </ol>
+    </section>
+
+    <div id="load-error" class="alert alert-error" role="alert" hidden></div>
+
+    <section id="workbench" class="workbench" aria-label="Image analysis tool">
+      <!-- LEFT: image stage -->
+      <div class="card stage-card">
+        <h2 class="card-title">1. Your photo</h2>
+
+        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose or drop a skin image">
+          <svg class="dz-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 32V12m0 0-8 8m8-8 8 8M8 34v4a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2v-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p class="dz-main">Drop a photo here, or <span class="link-like">browse files</span></p>
+          <p class="dz-sub">JPG, PNG or WEBP, up to <span id="max-mb">15</span> MB. Use good light, keep the spot in focus and fill most of the frame.</p>
+          <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" hidden>
+        </div>
+
+        <div id="stage" class="stage" hidden>
+          <div class="stage-img-wrap">
+            <img id="stage-img" alt="Your uploaded skin photo" draggable="false">
+            <div id="stage-busy" class="stage-busy" hidden><span class="spinner"></span></div>
+          </div>
+          <div class="stage-bar">
+            <div id="crop-controls-idle" class="btn-row">
+              <button id="btn-crop" class="btn btn-secondary" type="button">Crop</button>
+              <button id="btn-reset-crop" class="btn btn-ghost" type="button" hidden>Remove crop</button>
+              <button id="btn-replace" class="btn btn-ghost" type="button">Replace photo</button>
+            </div>
+            <div id="crop-controls-active" class="btn-row" hidden>
+              <button id="btn-apply-crop" class="btn btn-primary" type="button">Apply crop</button>
+              <button id="btn-cancel-crop" class="btn btn-ghost" type="button">Cancel</button>
+            </div>
+          </div>
+          <p id="stage-hint" class="hint" style="margin-top: 10px;">Cropping is optional. Drag the box to cover just the affected skin.</p>
+        </div>
+
+        <div id="upload-error" class="alert alert-error" role="alert" hidden></div>
+      </div>
+
+      <!-- RIGHT: settings -->
+      <div class="side">
+        <div class="card" id="adjust-card">
+          <div class="card-head">
+            <h2 class="card-title">2. Adjust the image <span class="optional">optional</span></h2>
+          </div>
+          <p class="hint">Only change these if the photo is too dark, bright or blurry.</p>
+          <div class="sliders">
+            <label class="slider"><span class="slider-label">Brightness <output id="o-brightness">1.00</output></span>
+              <input id="s-brightness" type="range" min="0.5" max="1.5" step="0.05" value="1"></label>
+            <label class="slider"><span class="slider-label">Contrast <output id="o-contrast">1.00</output></span>
+              <input id="s-contrast" type="range" min="0.5" max="1.5" step="0.05" value="1"></label>
+            <label class="slider"><span class="slider-label">Saturation <output id="o-saturation">1.00</output></span>
+              <input id="s-saturation" type="range" min="0" max="2" step="0.05" value="1"></label>
+            <label class="slider"><span class="slider-label">Sharpness <output id="o-sharpness">1.00</output></span>
+              <input id="s-sharpness" type="range" min="0" max="3" step="0.1" value="1"></label>
+          </div>
+          <div class="btn-row">
+            <button id="btn-reset-adj" class="btn btn-ghost" type="button" disabled>Reset adjustments</button>
+            <button id="btn-reset-all" class="btn btn-ghost" type="button" disabled>Restore original</button>
+          </div>
+        </div>
+
+        <div class="card" id="details-card">
+          <h2 class="card-title">3. Details <span class="optional">optional</span></h2>
+          <p class="hint">This model was trained with age, sex and body area alongside images, so these details can influence the ranking. Leave any field blank or choose &ldquo;Unknown&rdquo; if you are unsure.</p>
+          <div class="fields">
+            <div class="field">
+              <label for="f-age">Age in years</label>
+              <input id="f-age" type="number" inputmode="decimal" min="0" max="120" step="1" placeholder="e.g. 54" autocomplete="off">
+              <p id="age-help" class="field-help">0 to 120. If left blank, the typical age from the training data is used.</p>
+            </div>
+            <div class="field">
+              <label for="f-sex">Sex</label>
+              <select id="f-sex"></select>
+            </div>
+            <div class="field">
+              <label for="f-site">Affected area of the body</label>
+              <select id="f-site"></select>
+            </div>
+          </div>
+          <div id="form-error" class="alert alert-error" role="alert" hidden></div>
+        </div>
+
+        <div class="card cta-card">
+          <h2 class="card-title">4. Analyze</h2>
+          <button id="btn-analyze" class="btn btn-primary btn-large" type="button" disabled>
+            <span class="btn-label">Analyze Image</span>
+            <span class="btn-loading" hidden><span class="spinner spinner-light"></span> Analyzing&hellip;</span>
+          </button>
+          <p id="analyze-hint" class="hint">Upload a photo to enable analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="results" aria-live="polite" hidden>
+      <h2 class="results-title">Results</h2>
+      <div id="results-loading" class="results-loading" hidden>
+        <span class="spinner"></span>
+        <p>The model is analyzing your photo. This usually takes a few seconds.</p>
+      </div>
+      <div id="results-error" class="alert alert-error" role="alert" hidden></div>
+      <div id="results-body" hidden>
+        <div id="notices" style="display: none;"></div>
+        <div>
+          <aside class="inputs-panel card" style="display: none;">
+            <h3>What the model received</h3>
+            <img id="model-input" alt="The image as the model received it, resized" width="160" height="160">
+            <p id="model-input-caption" class="hint"></p>
+            <p id="meta-used" class="hint"></p>
+          </aside>
+          <div>
+            <p class="results-lead">Top 3 categories, ranked by model score.</p>
+            <ol id="prediction-list" class="pred-list"></ol>
+            <!-- <details class="score-help">
+              <summary>How to read the scores</summary>
+              <p>The score is a temperature-scaled softmax output. The temperature was fitted on the validation split of the training data to make the scores better matched to how often the model was right on that data. It describes how strongly the model prefers one supported category over the others for this image. It is <strong>not</strong> the chance that you have the condition, and it can be misleading for photos that differ from the training images (for example, different cameras, lighting, skin tones or body sites).</p>
+            </details> -->
+            <div id="supported" class="hint"></div>
+          </div>
+        </div>
+        <!-- <div class="disclaimer-box">
+          <strong>Please read:</strong> this is an experimental AI-assisted information tool. A visual classification cannot establish a diagnosis, and a low-risk result does not rule out a problem. If a spot is new, changing, bleeding, painful or simply worries you, see a doctor or dermatologist.
+        </div> -->
+        <br>
+        <div id="general-sources" class="sources-general"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>Disclaimer: </strong> DermAssist is an AI-assisted information tool for education and research. It does not provide medical advice, diagnosis or treatment, and is not a substitute for professional care. Do not delay or avoid seeking medical advice because of anything shown here.</p>
+      <!-- <p><strong>Privacy.</strong> Your photo is processed in the server's memory only while you use the app and is not saved to disk; it is discarded when you remove it or after about 30 minutes.</p>
+      <p class="fine">Model: multimodal image + clinical metadata classifier, trained on an aggregated dermoscopic and clinical-photo dataset. Performance on your own photos may differ from reported results.</p> -->
+    </div>
+  </footer>
+
+  <script src="/static/vendor/cropper.min.js"></script>
+  <script src="/static/app.js"></script>
+
+  <script>
+    document.getElementById("f-age").addEventListener("wheel", function (event) {
+      event.preventDefault();
+    }, { passive: false });
+  </script>
+</body>
+</html>
