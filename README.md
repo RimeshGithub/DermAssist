@@ -156,7 +156,6 @@ docker run --rm -p 7860:7860 dermassist
 ## 8. Assumptions, limits and things to review before going public
 
 - **Disease text and links need a clinical review.** The content is written for a general audience from standard dermatology references. Only the AAD skin-cancer-types page was confirmed live while building; the other URLs follow each site's usual patterns, so run `scripts/check_links.py` and fix anything that fails.
-- **`unknown` cannot be relied on for rejection.** The provided notebook trains no `unknown` class at all. Even with one, out-of-distribution photos (non-skin images, other conditions) can still be classified confidently.
 - **Domain shift.** The training set mixes dermoscopic images (HAM10000, BCN20000) and smartphone clinical photos (PAD-UFES-20). The split was image-level, not lesion-level, so reported metrics may be optimistic. Performance on arbitrary user photos, and across skin tones, may be lower than on the test split.
 - **The 50% low-score notice is a simple UI heuristic**, not a validated rejection threshold (`LOW_SCORE_THRESHOLD`).
 - **Privacy.** Images live in server memory only (30-minute TTL, deleted on replace/close) and are never written to disk by this app. Hugging Face infrastructure logs are outside the app's control; don't log request bodies if you extend it.
